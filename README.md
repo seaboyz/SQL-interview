@@ -64,6 +64,16 @@ create table person(
 * after begin a transaction, any query failed, when we commit, it will actually do a roll back instead of commit.
 #### rollback
 
+### ACID
+#### atomicity
+* All or nothing
+#### consistency
+* No constraint violation. Database contains consistent data.
+#### isolation
+* Users (sessions) don't affect each other.
+#### durability
+* Once data is committed, it is permanent.
+
 
 
 
