@@ -54,9 +54,16 @@ create table person(
     last_name varchar(50) not null,
     age int not null,
     gender varchar(7) not null,
-    date_of_birth data not null
+    date_of_birth date not null
 )
 ```
+
+### Transaction
+#### begin
+#### commit
+* after begin a transaction, any query failed, when we commit, it will actually do a roll back instead of commit.
+#### rollback
+
 
 
 
