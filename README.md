@@ -26,4 +26,40 @@
 * change database
 `\c database_name` 
 
+* create database
+`create database dbname;`
+
+* drop database
+`drop database dbname;`
+
+* create table
+```sql
+`create table tbname (
+    id int,
+    name varchar(20)
+    );
+```
+
+* reset query buffer
+`\r`
+
+* check table schema
+`\d table_name`
+
+* create table with constraint
+```sql
+create table person(
+    id bigserial not null primary key,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    age int not null,
+    gender varchar(7) not null,
+    date_of_birth data not null
+)
+```
+
+
+
+
+
 
