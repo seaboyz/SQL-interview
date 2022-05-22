@@ -57,6 +57,10 @@ create table person(
     date_of_birth date not null
 )
 ```
+* check settings
+```sql
+\set
+```
 
 ### Transaction
 #### begin
@@ -73,6 +77,8 @@ create table person(
 * Users (sessions) don't affect each other.
 #### durability
 * Once data is committed, it is permanent.
+
+
 
 
 
