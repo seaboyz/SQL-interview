@@ -1,8 +1,10 @@
+drop table person if exists;
 create table person (
+	id bigserial primary key not null,
 	first_name VARCHAR(50) not null,
 	last_name VARCHAR(50) not null,
 	email VARCHAR(150),
-	gender VARCHAR(7) not null,
+	gender VARCHAR(10) not null,
 	date_of_birth DATE not null,
 	country_of_birth VARCHAR(50)
 );
