@@ -1,3 +1,20 @@
+### Transaction
+#### begin
+#### commit
+* after begin a transaction, any query failed, when we commit, it will actually do a roll back instead of commit.
+#### rollback
+
+### ACID
+#### atomicity
+* All or nothing
+#### consistency
+* No constraint violation. Database contains consistent data.
+#### isolation
+* Users (sessions) don't affect each other.
+#### durability
+* Once data is committed, it is permanent.
+
+
 # SQL
 #### filter even
 `select * from tbname`
@@ -62,21 +79,16 @@ create table person(
 \set
 ```
 
-### Transaction
-#### begin
-#### commit
-* after begin a transaction, any query failed, when we commit, it will actually do a roll back instead of commit.
-#### rollback
+* insert
+  ```sql
+  insert into person (
+      first_name,
+      last_name,
+      gender,
+      date_of_birth)
+  values ('Anne', 'Smith', 'FEMALE', date '1988-01-09');
+  ```
 
-### ACID
-#### atomicity
-* All or nothing
-#### consistency
-* No constraint violation. Database contains consistent data.
-#### isolation
-* Users (sessions) don't affect each other.
-#### durability
-* Once data is committed, it is permanent.
 
 
 
