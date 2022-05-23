@@ -124,8 +124,19 @@ alter column email drop not null;
 \dt
 ```
 
+* all columns
+```sql
+\?
+```
 
-
+* insert data from .sql file
+1. `comannd line to the file location`
+2. `pwd`
+3. copy the file path
+4. `\i /Users/qianggao/Desktop/SQL/filename.sql`
+```sql
+\i filename.sql
+```
     
 
   
