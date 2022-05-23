@@ -89,6 +89,47 @@ create table person(
   values ('Anne', 'Smith', 'FEMALE', date '1988-01-09');
   ```
 
+* add column to schema
+```sql
+alter table person
+add column email varchar(50) not null;
+```
+
+* remove column from schema
+```sql
+alter table person
+drop column email;
+```
+
+* change coloumn type
+```sql
+alter table person
+alter column email set data type varchar(100);
+```
+
+* change column constraint
+```sql
+alter table person
+alter column email set not null;
+```
+
+* remove column constraint
+```sql
+alter table person
+alter column email drop not null;
+```
+
+* only show empty table
+```sql
+\dt
+```
+
+
+
+    
+
+  
+
 
 
 
