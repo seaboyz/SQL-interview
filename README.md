@@ -194,6 +194,12 @@ offset 10
 fetach 10 rows only;
 ```
 
+* in
+```sql
+select * from person
+where country_of_birth in ('China', 'USA');
+```
+
 
 
 
