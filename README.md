@@ -200,6 +200,13 @@ select * from person
 where country_of_birth in ('China', 'USA');
 ```
 
+* between
+```sql
+select * from person
+where date_of_birth 
+between date '1988-01-09' and date '1988-01-10';
+```
+
 
 
 
