@@ -206,7 +206,11 @@ select * from person
 where date_of_birth 
 between date '1988-01-09' and date '1988-01-10';
 ```
-
+* like and ilike
+```sql
+select * from person
+where email like '%@gmail.com';
+```
 
 
 
