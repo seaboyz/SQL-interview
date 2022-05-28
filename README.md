@@ -163,6 +163,13 @@ select * from person
 order by first_name asc, last_name desc;
 ```
 
+* distinct
+```sql
+select distinct country_of_birth from person
+order by country_of_birth asc;
+```
+
+
 
 
     
