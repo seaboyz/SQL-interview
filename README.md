@@ -171,6 +171,30 @@ order by country_of_birth asc;
 
 * where
 ```sql
+select * from person
+where country_of_birth = 'China' or country_of_birth = 'USA';
+```
+
+* operator
+```sql
+select * from person
+where country_of_birth != 'China';
+```
+
+* offset/limit
+```sql
+select * from person limit 10 offset 10;
+```
+
+<!-- equivlent to offset/limit -->
+* fetch
+```sql
+select * from person
+offset 10
+fetach 10 rows only;
+```
+
+
 
 
 
