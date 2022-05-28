@@ -137,6 +137,24 @@ alter column email drop not null;
 ```sql
 \i filename.sql
 ```
+
+* select
+```sql
+select * from person;
+```
+```sql
+select first_name, last_name from person;
+```
+```sql
+select email from person;
+```
+
+* order by
+```sql
+select * from person 
+order by first_name asc;
+```
+
     
 
   
