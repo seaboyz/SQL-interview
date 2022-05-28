@@ -154,6 +154,16 @@ select email from person;
 select * from person 
 order by first_name asc;
 ```
+```sql
+select * from person
+order by first_name desc;
+```
+```sql
+select * from person
+order by first_name asc, last_name desc;
+```
+
+
 
     
 
