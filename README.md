@@ -234,8 +234,19 @@ order by country_of_birth asc;
 
 * sum max min avg count
 ```sql
-
-
+select max(price) from car;
+```
+```sql
+select sum(price) from car;
+```
+```sql
+select round(avg(price)) from car;
+```
+```sql
+select make, model, max(price) from car
+group by make
+order by max(price) desc;
+```
 
 
 
