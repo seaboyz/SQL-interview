@@ -224,6 +224,14 @@ select * from person
 where country_of_birth ilike 'china';
 ```
 
+* having
+```sql
+select country_of_birth, count(*) from person
+group by country_of_birth
+having count(*) > 5
+order by country_of_birth asc;
+```
+
 
 
 
