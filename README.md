@@ -232,6 +232,9 @@ having count(*) > 5
 order by country_of_birth asc;
 ```
 
+* sum max min avg count
+```sql
+
 
 
 
