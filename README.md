@@ -211,6 +211,18 @@ between date '1988-01-09' and date '1988-01-10';
 select * from person
 where email like '%@gmail.com';
 ```
+```sql
+select * from person
+where email ilike '_______@%';
+```
+```sql
+select * from person
+where email ilike '%@google%';
+```
+```sql
+select * from person
+where country_of_birth ilike 'china';
+```
 
 
 
