@@ -284,6 +284,15 @@ from car
 group by make;
 ```
 
+* date
+```sql
+select now()::date;
+select now()::time;
+select now()::timestamp;
+select now()::timestamp with time zone;
+select now()::timestamp with time zone at time zone 'UTC';
+```
+```
 
 
 
