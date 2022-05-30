@@ -272,6 +272,10 @@ select make, model, max(price) as max_price from car
 group by make;
 ```
 
+* coalesce
+```sql
+select coalesce(email, 'no email');
+```
 
 
 
