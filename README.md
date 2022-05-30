@@ -247,6 +247,21 @@ select make, model, max(price) from car
 group by make
 order by max(price) desc;
 ```
+```sql
+select sum(price) from car
+where make = 'Ford' and model = 'Fiesta';
+```
+```sql
+select sum(price) from car
+group by make;
+```
+
+* `+ - * / ^ %`
+```sql
+select 10 % 3;
+```
+
+
 
 
 
