@@ -292,8 +292,12 @@ select now()::timestamp;
 select now()::timestamp with time zone;
 select now()::timestamp with time zone at time zone 'UTC';
 ```
+```sql
+select now() - interval '1 day';
+select now() - interval '1 day' + interval '1 hour';
+select now() - interval '1 day' + interval '1 hour' + interval '1 minute';
+select now() - interval '1 day' + interval '1 hour' + interval '1 minute' + interval '1 second';
 ```
-
 
 
 
