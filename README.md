@@ -277,6 +277,14 @@ group by make;
 select coalesce(email, 'no email');
 ```
 
+* nullif(if equal return null, else return the first value)
+```sql
+select max(price) / nullif(count(*), 0), make
+from car
+group by make;
+```
+
+
 
 
 
