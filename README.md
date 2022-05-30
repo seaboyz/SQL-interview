@@ -261,6 +261,17 @@ group by make;
 select 10 % 3;
 ```
 
+* round
+```sql
+select round(avg(price), 2);
+```
+
+* as
+```sql
+select make, model, max(price) as max_price from car
+group by make;
+```
+
 
 
 
