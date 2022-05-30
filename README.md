@@ -311,6 +311,15 @@ select extract(minute from now());
 select extract(second from now());
 ```
 
+* temporary table and age()
+```sql
+create temporary table person_temp as select * from person;
+alter table person_temp drop column email;
+select *, age(now(), date_of_birth) from person_temp;
+```
+
+
+
 
     
 
