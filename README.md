@@ -50,6 +50,7 @@
         - [add unique constraint](#add-unique-constraint)
         - [primary key vs unique](#primary-key-vs-unique)
         - [check constraint](#check-constraint)
+        - [delete](#delete)
 ### Transaction
 #### begin
 #### commit
@@ -417,6 +418,17 @@ alter table person
 add constraint person_check_gender 
 check (gender = 'Female' or gender = 'Male');
 ```
+
+##### delete
+<!-- use primary key only -->
+<!-- never use other field -->
+* delete all
+```sql
+delete from person;
+```
+
+
+
 
 
     
