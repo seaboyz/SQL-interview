@@ -1,79 +1,83 @@
-- [SQL](#sql)
-      - [filter even](#filter-even)
-      - [none duplecate](#none-duplecate)
-      - [count](#count)
-      - [order by, asc, desc, limit](#order-by-asc-desc-limit)
-      - [SQL](#sql-1)
-        - [structured query language](#structured-query-language)
-        - [connect to database](#connect-to-database)
-        - [change database](#change-database)
-        - [create database](#create-database)
-        - [drop database](#drop-database)
-        - [create table](#create-table)
-        - [reset query buffer](#reset-query-buffer)
-        - [check table schema](#check-table-schema)
-        - [create table with constraint](#create-table-with-constraint)
-        - [check settings](#check-settings)
-        - [insert](#insert)
-        - [add column to schema](#add-column-to-schema)
-        - [remove column from schema](#remove-column-from-schema)
-        - [change coloumn type](#change-coloumn-type)
-        - [change column constraint](#change-column-constraint)
-        - [remove column constraint](#remove-column-constraint)
-        - [only show empty table](#only-show-empty-table)
-        - [all columns](#all-columns)
-        - [insert data from .sql file](#insert-data-from-sql-file)
-        - [select](#select)
-        - [order by](#order-by)
-        - [distinct](#distinct)
-        - [where](#where)
-        - [operator](#operator)
-        - [offset/limit](#offsetlimit)
-        - [fetch](#fetch)
-        - [in](#in)
-        - [between](#between)
-        - [like and ilike](#like-and-ilike)
-        - [having](#having)
-        - [sum max min avg count](#sum-max-min-avg-count)
-        - [`+ - * / ^ %`](#------)
-        - [round](#round)
-        - [as](#as)
-        - [coalesce](#coalesce)
-        - [nullif(if equal return null, else return the first value)](#nullifif-equal-return-null-else-return-the-first-value)
-        - [date](#date)
-        - [interval](#interval)
-        - [extract](#extract)
-        - [temporary table and age()](#temporary-table-and-age)
-        - [primary key](#primary-key)
-        - [drop constraint](#drop-constraint)
-        - [add primary key](#add-primary-key)
-        - [add unique constraint](#add-unique-constraint)
-        - [primary key vs unique](#primary-key-vs-unique)
-        - [check constraint](#check-constraint)
-        - [delete](#delete)
-        - [update](#update)
-        - [on conflict do nothing](#on-conflict-do-nothing)
-        - [upsert (update or insert)](#upsert-update-or-insert)
-    - [Relationships](#relationships)
-        - [foreign key](#foreign-key)
+- [Transaction](#transaction)
+- [ACID](#acid)
+- [Basic SQL](#basic-sql)
+  - [filter even](#filter-even)
+  - [none duplecate](#none-duplecate)
+  - [count](#count)
+  - [order by, asc, desc, limit](#order-by-asc-desc-limit)
+  - [SQL](#sql)
+    - [structured query language](#structured-query-language)
+    - [connect to database](#connect-to-database)
+    - [change database](#change-database)
+    - [create database](#create-database)
+    - [drop database](#drop-database)
+    - [create table](#create-table)
+    - [reset query buffer](#reset-query-buffer)
+    - [check table schema](#check-table-schema)
+    - [create table with constraint](#create-table-with-constraint)
+    - [check settings](#check-settings)
+    - [insert](#insert)
+    - [add column to schema](#add-column-to-schema)
+    - [remove column from schema](#remove-column-from-schema)
+    - [change coloumn type](#change-coloumn-type)
+    - [change column constraint](#change-column-constraint)
+    - [remove column constraint](#remove-column-constraint)
+    - [only show empty table](#only-show-empty-table)
+    - [all columns](#all-columns)
+    - [insert data from .sql file](#insert-data-from-sql-file)
+    - [select](#select)
+    - [order by](#order-by)
+    - [distinct](#distinct)
+    - [where](#where)
+    - [operator](#operator)
+    - [offset/limit](#offsetlimit)
+    - [fetch](#fetch)
+    - [in](#in)
+    - [between](#between)
+    - [like and ilike](#like-and-ilike)
+    - [having](#having)
+    - [sum max min avg count](#sum-max-min-avg-count)
+    - [`+ - * / ^ %`](#------)
+    - [round](#round)
+    - [as](#as)
+    - [coalesce](#coalesce)
+    - [nullif(if equal return null, else return the first value)](#nullifif-equal-return-null-else-return-the-first-value)
+    - [date](#date)
+    - [interval](#interval)
+    - [extract](#extract)
+    - [temporary table and age()](#temporary-table-and-age)
+    - [primary key](#primary-key)
+    - [drop constraint](#drop-constraint)
+    - [add primary key](#add-primary-key)
+    - [add unique constraint](#add-unique-constraint)
+    - [primary key vs unique](#primary-key-vs-unique)
+    - [check constraint](#check-constraint)
+    - [delete](#delete)
+    - [update](#update)
+    - [on conflict do nothing](#on-conflict-do-nothing)
+    - [upsert (update or insert)](#upsert-update-or-insert)
+  - [Relationships](#relationships)
+    - [foreign key](#foreign-key)
+    - [add relationship](#add-relationship)
+        
 ### Transaction
-#### begin
-#### commit
-##### after begin a transaction, any query failed, when we commit, it will actually do a roll back instead of commit.
-#### rollback
+* begin
+* commit
+    * after begin a transaction, any query failed, when we commit, it will actually do a roll back instead of commit.
+* rollback
 
 ### ACID
-#### atomicity
-##### All or nothing
-#### consistency
-##### No constraint violation. Database contains consistent data.
-#### isolation
-##### Users (sessions) don't affect each other.
-#### durability
-##### Once data is committed, it is permanent.
+* atomicity
+* All or nothing
+* consistency
+  * No constraint violation. Database contains consistent data.
+* isolation
+  *  Users (sessions) don't affect each other.
+* durability
+  *  s Once data is committed, it is permanent.
 
 
-# SQL
+### Basic SQL
 #### filter even
 `select * from tbname`
 `where mod(id, 2) = 2;`
@@ -457,8 +461,7 @@ on conflict (id) do update set
 first_name = 'Edsel',
 last_name = 'Smith';
 ```
-
-### Relationships
+#### Relationships
 ##### foreign key
 ```sql
 create table person(
@@ -469,7 +472,11 @@ create table person(
     country_of_birth varchar(50) not null,
     email varchar(50) not null,
     car_id bigint references car(id) unique(car_id);
+);
 ```
+##### add relationship
+```sql
+
 
     
 
