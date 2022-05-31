@@ -53,6 +53,7 @@
         - [delete](#delete)
         - [update](#update)
         - [on conflict do nothing](#on-conflict-do-nothing)
+        - [upsert (update or insert)](#upsert-update-or-insert)
 ### Transaction
 #### begin
 #### commit
@@ -445,6 +446,17 @@ insert into person (id,first_name, last_name)
 values (1, 'Edsel', 'Smith')
 on conflict do nothing;
 ```
+
+##### upsert (update or insert)
+```sql
+insert into person (id,first_name, last_name)
+values (1, 'Edsel', 'Smith')
+on conflict (id) do update set
+first_name = 'Edsel',
+last_name = 'Smith';
+```
+
+
 
     
 
