@@ -46,6 +46,8 @@
         - [temporary table and age()](#temporary-table-and-age)
         - [primary key](#primary-key)
         - [drop constraint](#drop-constraint)
+        - [add primary key](#add-primary-key)
+        - [add unique constraint](#add-unique-constraint)
 ### Transaction
 #### begin
 #### commit
@@ -379,8 +381,29 @@ create table person(
 ```sql
 alter table person
 drop constraint person_pkey;
+insert into person (id,first_name, last_name, age)
+values (1, 'Anne', 'Smith', 25);
+insert into person (id,first_name, last_name, age)
+values (1, 'John', 'Smith', 25);
+--  without constraint, table will have duplicate rows with the same id
 ```
 
+##### add primary key
+```sql
+alter table person
+add primary key (id);
+```
+
+##### add unique constraint
+```sql
+alter table person
+add constraint person_unique_email unique (email);
+```
+```sql
+-- equivalent to the above, only different syntax and let sql name the constraint
+alter table person
+add unique (email);
+```
 
 
     
