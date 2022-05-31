@@ -54,6 +54,8 @@
         - [update](#update)
         - [on conflict do nothing](#on-conflict-do-nothing)
         - [upsert (update or insert)](#upsert-update-or-insert)
+    - [Relationships](#relationships)
+        - [foreign key](#foreign-key)
 ### Transaction
 #### begin
 #### commit
@@ -456,7 +458,18 @@ first_name = 'Edsel',
 last_name = 'Smith';
 ```
 
-
+### Relationships
+##### foreign key
+```sql
+create table person(
+    id bigserial not null primary key,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    age int not null,
+    country_of_birth varchar(50) not null,
+    email varchar(50) not null,
+    car_id bigint references car(id) unique(car_id);
+```
 
     
 
