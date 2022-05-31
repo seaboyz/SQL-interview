@@ -49,6 +49,7 @@
         - [add primary key](#add-primary-key)
         - [add unique constraint](#add-unique-constraint)
         - [primary key vs unique](#primary-key-vs-unique)
+        - [check constraint](#check-constraint)
 ### Transaction
 #### begin
 #### commit
@@ -410,7 +411,12 @@ add unique (email);
 * Primary Key is used to uniquely identify a row 
 * a unique key is used to prevent duplicate values in a column
 
-
+##### check constraint
+```sql
+alter table person
+add constraint person_check_gender 
+check (gender = 'Female' or gender = 'Male');
+```
 
 
     
