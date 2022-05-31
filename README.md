@@ -1,18 +1,66 @@
+- [SQL](#sql)
+      - [filter even](#filter-even)
+      - [none duplecate](#none-duplecate)
+      - [count](#count)
+      - [order by, asc, desc, limit](#order-by-asc-desc-limit)
+      - [SQL](#sql-1)
+        - [structured query language](#structured-query-language)
+        - [connect to database](#connect-to-database)
+        - [change database](#change-database)
+        - [create database](#create-database)
+        - [drop database](#drop-database)
+        - [create table](#create-table)
+        - [reset query buffer](#reset-query-buffer)
+        - [check table schema](#check-table-schema)
+        - [create table with constraint](#create-table-with-constraint)
+        - [check settings](#check-settings)
+        - [insert](#insert)
+        - [add column to schema](#add-column-to-schema)
+        - [remove column from schema](#remove-column-from-schema)
+        - [change coloumn type](#change-coloumn-type)
+        - [change column constraint](#change-column-constraint)
+        - [remove column constraint](#remove-column-constraint)
+        - [only show empty table](#only-show-empty-table)
+        - [all columns](#all-columns)
+        - [insert data from .sql file](#insert-data-from-sql-file)
+        - [select](#select)
+        - [order by](#order-by)
+        - [distinct](#distinct)
+        - [where](#where)
+        - [operator](#operator)
+        - [offset/limit](#offsetlimit)
+        - [fetch](#fetch)
+        - [in](#in)
+        - [between](#between)
+        - [like and ilike](#like-and-ilike)
+        - [having](#having)
+        - [sum max min avg count](#sum-max-min-avg-count)
+        - [`+ - * / ^ %`](#------)
+        - [round](#round)
+        - [as](#as)
+        - [coalesce](#coalesce)
+        - [nullif(if equal return null, else return the first value)](#nullifif-equal-return-null-else-return-the-first-value)
+        - [date](#date)
+        - [interval](#interval)
+        - [extract](#extract)
+        - [temporary table and age()](#temporary-table-and-age)
+        - [primary key](#primary-key)
+        - [drop constraint](#drop-constraint)
 ### Transaction
 #### begin
 #### commit
-* after begin a transaction, any query failed, when we commit, it will actually do a roll back instead of commit.
+##### after begin a transaction, any query failed, when we commit, it will actually do a roll back instead of commit.
 #### rollback
 
 ### ACID
 #### atomicity
-* All or nothing
+##### All or nothing
 #### consistency
-* No constraint violation. Database contains consistent data.
+##### No constraint violation. Database contains consistent data.
 #### isolation
-* Users (sessions) don't affect each other.
+##### Users (sessions) don't affect each other.
 #### durability
-* Once data is committed, it is permanent.
+##### Once data is committed, it is permanent.
 
 
 # SQL
@@ -35,21 +83,21 @@
 `limit 1;`
 
 #### SQL
-* structured query language
+##### structured query language
 
-* connect to database
+##### connect to database
 `psql -h localhost -p 5432 -U postgres -d dbname -c "select * from tbname;"`
 
-* change database
+##### change database
 `\c database_name` 
 
-* create database
+##### create database
 `create database dbname;`
 
-* drop database
+##### drop database
 `drop database dbname;`
 
-* create table
+##### create table
 ```sql
 `create table tbname (
     id int,
@@ -57,13 +105,13 @@
     );
 ```
 
-* reset query buffer
+##### reset query buffer
 `\r`
 
-* check table schema
+##### check table schema
 `\d table_name`
 
-* create table with constraint
+##### create table with constraint
 ```sql
 create table person(
     id bigserial not null primary key,
@@ -74,12 +122,12 @@ create table person(
     date_of_birth date not null
 )
 ```
-* check settings
+##### check settings
 ```sql
 \set
 ```
 
-* insert
+##### insert
   ```sql
   insert into person (
       first_name,
@@ -89,47 +137,47 @@ create table person(
   values ('Anne', 'Smith', 'FEMALE', date '1988-01-09');
   ```
 
-* add column to schema
+##### add column to schema
 ```sql
 alter table person
 add column email varchar(50) not null;
 ```
 
-* remove column from schema
+##### remove column from schema
 ```sql
 alter table person
 drop column email;
 ```
 
-* change coloumn type
+##### change coloumn type
 ```sql
 alter table person
 alter column email set data type varchar(100);
 ```
 
-* change column constraint
+##### change column constraint
 ```sql
 alter table person
 alter column email set not null;
 ```
 
-* remove column constraint
+##### remove column constraint
 ```sql
 alter table person
 alter column email drop not null;
 ```
 
-* only show empty table
+##### only show empty table
 ```sql
 \dt
 ```
 
-* all columns
+##### all columns
 ```sql
 \?
 ```
 
-* insert data from .sql file
+##### insert data from .sql file
 1. `comannd line to the file location`
 2. `pwd`
 3. copy the file path
@@ -138,7 +186,7 @@ alter column email drop not null;
 \i filename.sql
 ```
 
-* select
+##### select
 ```sql
 select * from person;
 ```
@@ -149,7 +197,7 @@ select first_name, last_name from person;
 select email from person;
 ```
 
-* order by
+##### order by
 ```sql
 select * from person 
 order by first_name asc;
@@ -163,50 +211,50 @@ select * from person
 order by first_name asc, last_name desc;
 ```
 
-* distinct
+##### distinct
 ```sql
 select distinct country_of_birth from person
 order by country_of_birth asc;
 ```
 
-* where
+##### where
 ```sql
 select * from person
 where country_of_birth = 'China' or country_of_birth = 'USA';
 ```
 
-* operator
+##### operator
 ```sql
 select * from person
 where country_of_birth != 'China';
 ```
 
-* offset/limit
+##### offset/limit
 ```sql
 select * from person limit 10 offset 10;
 ```
 
 <!-- equivlent to offset/limit -->
-* fetch
+##### fetch
 ```sql
 select * from person
 offset 10
 fetach 10 rows only;
 ```
 
-* in
+##### in
 ```sql
 select * from person
 where country_of_birth in ('China', 'USA');
 ```
 
-* between
+##### between
 ```sql
 select * from person
 where date_of_birth 
 between date '1988-01-09' and date '1988-01-10';
 ```
-* like and ilike
+##### like and ilike
 ```sql
 select * from person
 where email like '%@gmail.com';
@@ -224,7 +272,7 @@ select * from person
 where country_of_birth ilike 'china';
 ```
 
-* having
+##### having
 ```sql
 select country_of_birth, count(*) from person
 group by country_of_birth
@@ -232,7 +280,7 @@ having count(*) > 5
 order by country_of_birth asc;
 ```
 
-* sum max min avg count
+##### sum max min avg count
 ```sql
 select max(price) from car;
 ```
@@ -256,35 +304,35 @@ select sum(price) from car
 group by make;
 ```
 
-* `+ - * / ^ %`
+##### `+ - * / ^ %`
 ```sql
 select 10 % 3;
 ```
 
-* round
+##### round
 ```sql
 select round(avg(price), 2);
 ```
 
-* as
+##### as
 ```sql
 select make, model, max(price) as max_price from car
 group by make;
 ```
 
-* coalesce
+##### coalesce
 ```sql
 select coalesce(email, 'no email');
 ```
 
-* nullif(if equal return null, else return the first value)
+##### nullif(if equal return null, else return the first value)
 ```sql
 select max(price) / nullif(count(*), 0), make
 from car
 group by make;
 ```
 
-* date
+##### date
 ```sql
 select now()::date;
 select now()::time;
@@ -293,7 +341,7 @@ select now()::timestamp with time zone;
 select now()::timestamp with time zone at time zone 'UTC';
 ```
 
-* interval
+##### interval
 ```sql
 select now() - interval '1 day';
 select now() - interval '1 day' + interval '1 hour';
@@ -301,7 +349,7 @@ select now() - interval '1 day' + interval '1 hour' + interval '1 minute';
 select now() - interval '1 day' + interval '1 hour' + interval '1 minute' + interval '1 second';
 ```
 
-* extract
+##### extract
 ```sql
 select extract(year from now());
 select extract(month from now());
@@ -311,13 +359,27 @@ select extract(minute from now());
 select extract(second from now());
 ```
 
-* temporary table and age()
+##### temporary table and age()
 ```sql
 create temporary table person_temp as select * from person;
 alter table person_temp drop column email;
 select *, age(now(), date_of_birth) from person_temp;
 ```
 
+##### primary key
+```sql
+create table person(
+    id bigserial not null primary key,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    age int not null,
+```
+
+##### drop constraint
+```sql
+alter table person
+drop constraint person_pkey;
+```
 
 
 
