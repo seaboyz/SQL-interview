@@ -48,6 +48,7 @@
         - [drop constraint](#drop-constraint)
         - [add primary key](#add-primary-key)
         - [add unique constraint](#add-unique-constraint)
+        - [primary key vs unique](#primary-key-vs-unique)
 ### Transaction
 #### begin
 #### commit
@@ -404,6 +405,12 @@ add constraint person_unique_email unique (email);
 alter table person
 add unique (email);
 ```
+
+##### primary key vs unique
+* Primary Key is used to uniquely identify a row 
+* a unique key is used to prevent duplicate values in a column
+
+
 
 
     
