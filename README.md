@@ -52,6 +52,7 @@
         - [check constraint](#check-constraint)
         - [delete](#delete)
         - [update](#update)
+        - [on conflict do nothing](#on-conflict-do-nothing)
 ### Transaction
 #### begin
 #### commit
@@ -438,8 +439,12 @@ first_name = 'Edsel',
 last_name = 'Smith',
 where first_name = 'Edsel';
 ```
-
-
+##### on conflict do nothing
+```sql
+insert into person (id,first_name, last_name)
+values (1, 'Edsel', 'Smith')
+on conflict do nothing;
+```
 
     
 
