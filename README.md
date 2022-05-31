@@ -51,6 +51,7 @@
         - [primary key vs unique](#primary-key-vs-unique)
         - [check constraint](#check-constraint)
         - [delete](#delete)
+        - [update](#update)
 ### Transaction
 #### begin
 #### commit
@@ -427,7 +428,16 @@ check (gender = 'Female' or gender = 'Male');
 delete from person;
 ```
 
-
+##### update
+```sql
+update person set email='Edsel@gmail.com' where first_name='Edsel';
+```
+```sql
+update person set
+first_name = 'Edsel',
+last_name = 'Smith',
+where first_name = 'Edsel';
+```
 
 
 
