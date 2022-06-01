@@ -59,6 +59,8 @@
   - [Relationships](#relationships)
     - [foreign key](#foreign-key)
     - [add relationship](#add-relationship)
+    - [inner join on](#inner-join-on)
+    - [left join on](#left-join-on)
         
 ### Transaction
 * begin
@@ -479,8 +481,16 @@ create table person(
 update person set car_id = 1 where id = 1;
 ```
 
+##### inner join on
+```sql
+select * from person inner join car on person.car_id = car.id;
+```
 
-    
+##### left join on
+```sql
+select * from person left join car on person.car_id = car.id;
+```
+
 
   
 
