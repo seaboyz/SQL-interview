@@ -61,6 +61,7 @@
     - [add relationship](#add-relationship)
     - [inner join on](#inner-join-on)
     - [left join on](#left-join-on)
+    - [delete with constaint(`cascade` is bad practice)](#delete-with-constaintcascade-is-bad-practice)
         
 ### Transaction
 * begin
@@ -491,6 +492,11 @@ select * from person inner join car on person.car_id = car.id;
 select * from person left join car on person.car_id = car.id;
 ```
 
+##### delete with constaint(`cascade` is bad practice)
+```sql
+delete from person where car_id = 1;
+delete from car where id = 1;
+```
 
   
 
