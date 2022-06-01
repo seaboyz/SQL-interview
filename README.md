@@ -476,6 +476,8 @@ create table person(
 ```
 ##### add relationship
 ```sql
+update person set car_id = 1 where id = 1;
+```
 
 
     
