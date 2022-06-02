@@ -65,6 +65,8 @@
     - [output to .csv](#output-to-csv)
     - [bigserial](#bigserial)
     - [extension](#extension)
+    - [list all functions](#list-all-functions)
+    - [uuid(universal unique identifier)](#uuiduniversal-unique-identifier)
         
 ### Transaction
 * begin
@@ -528,6 +530,21 @@ alter sequence person_id_seq restart with 1;
 ```sql
 select * from pg_available_extensions;
 ```
+```sql
+create extension if not exists "uuid-ossp";
+```
+
+
+##### list all functions
+```console
+\df
+```
+
+##### uuid(universal unique identifier)
+```sql
+select uuid_generate_v4();
+```
+
 
 
   
