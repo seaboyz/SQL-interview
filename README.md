@@ -63,6 +63,8 @@
     - [left join on](#left-join-on)
     - [delete with constaint(`cascade` is bad practice)](#delete-with-constaintcascade-is-bad-practice)
     - [output to .csv](#output-to-csv)
+    - [bigserial](#bigserial)
+    - [extension](#extension)
         
 ### Transaction
 * begin
@@ -504,6 +506,29 @@ delete from car where id = 1;
 \copy 
 (select * from person left join car on car.id=person.car_id) 
 to '/Users/qianggao/Desktop/result.csv' delimiter ',' csv header
+```
+
+##### bigserial
+```sql
+create table person(
+    id bigserial not null primary key,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    age int not null,
+    country_of_birth varchar(50) not null,
+    email varchar(50) not null,
+    car_id bigserial references car(id) unique(car_id)
+);
+```
+```sql
+alter sequence person_id_seq restart with 1;
+```
+
+##### extension
+```sql
+select * from pg_available_extensions;
+```
+
 
   
 
